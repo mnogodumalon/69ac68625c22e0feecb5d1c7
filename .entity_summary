@@ -1,0 +1,8 @@
+- Pflegeplanung (pflegeplanung): gartenbereich[applookup/select], aufgaben[applookup/select], geplante_jahreszeit[lookup/select], geplanter_zeitraum[string/text], prioritaet[lookup/select], planungsnotizen[string/textarea]
+  → gartenbereich links to app_id 69ac684a7a71d66a8bcf9a19
+  → aufgaben links to app_id 69ac684f4e04afa6767a4c6e
+- Gartenbereiche (gartenbereiche): bereichsname[string/text], beschreibung[string/textarea], groesse[number], lage[string/text], notizen[string/textarea]
+- Arbeitsprotokoll (arbeitsprotokoll): gartenbereich_arbeit[applookup/select], datum[date/date], durchgefuehrte_arbeiten[string/textarea], zeitaufwand[string/text], wetter[string/text], beobachtungen[string/textarea], foto[file], geplante_pflege[applookup/select]
+  → gartenbereich_arbeit links to app_id 69ac684a7a71d66a8bcf9a19
+  → geplante_pflege links to app_id 69ac68506c4047109f2ef1b3
+- Saisonale Aufgaben (saisonale_aufgaben): aufgabenname[string/text], beschreibung[string/textarea], jahreszeit[multiplelookup/checkbox], haeufigkeit[lookup/select], dauer_schaetzung[string/text], anleitung[string/textarea]
