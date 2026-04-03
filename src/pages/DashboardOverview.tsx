@@ -412,6 +412,21 @@ export default function DashboardOverview() {
                             {p.fields.beobachtungen && (
                               <p className="text-xs text-muted-foreground mt-1 italic line-clamp-1">{p.fields.beobachtungen}</p>
                             )}
+                            {p.fields.foto && (
+                              <a
+                                href={p.fields.foto}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-block mt-2 rounded-lg overflow-hidden border border-border hover:opacity-80 transition-opacity"
+                                title="Bild in neuem Tab öffnen"
+                              >
+                                <img
+                                  src={p.fields.foto}
+                                  alt="Foto"
+                                  className="h-16 w-auto max-w-[120px] object-cover"
+                                />
+                              </a>
+                            )}
                           </div>
                           <div className="flex items-center gap-1 shrink-0">
                             <button
