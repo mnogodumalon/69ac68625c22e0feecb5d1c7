@@ -5,7 +5,7 @@ import type { Gartenbereiche, SaisonaleAufgaben } from '@/types/app';
 import { APP_IDS } from '@/types/app';
 import { LivingAppsService, createRecordUrl, extractRecordId } from '@/services/livingAppsService';
 import { formatDate } from '@/lib/formatters';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -62,6 +62,12 @@ export default function DashboardOverview() {
 
   // --- state (ALL hooks before early returns!) ---
   const [selectedBereichId, setSelectedBereichId] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!loading && gartenbereiche.length > 0 && selectedBereichId === null) {
+      setSelectedBereichId(gartenbereiche[0].record_id);
+    }
+  }, [loading, gartenbereiche, selectedBereichId]);
   const [bereichDialog, setBereichDialog] = useState<{ open: boolean; record?: Gartenbereiche }>({ open: false });
   const [protokollDialog, setProtokollDialog] = useState<{ open: boolean; record?: EnrichedArbeitsprotokoll; defaultBereichId?: string }>({ open: false });
   const [pflegeDialog, setPflegeDialog] = useState<{ open: boolean; record?: EnrichedPflegeplanung; defaultBereichId?: string }>({ open: false });
